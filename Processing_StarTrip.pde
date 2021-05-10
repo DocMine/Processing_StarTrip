@@ -23,6 +23,7 @@ void setup(){
     randomX = ridis-int(random(0,1)*2*ridis);
     randomY = ridis-int(random(0,1)*2*ridis);
     stars[index++] = new StarModule(randomX+width/2, randomY+height/2 ,width, height);
+    //stars[index++] = new StarModule(int(random(0,width)), int(random(0,height)) ,width, height);
     }
 }
 
@@ -30,7 +31,9 @@ void draw(){
   background(0);
   for(StarModule star : stars){
    acc = map(mouseX, 0,width,0,0.05);
-   star.update(acc);
+   star.UpdateLiner();
+   star.UpdateGravity(0.2);
+   star.UpdateLimitCheck(4);
    star.display(); //<>//
   }
 }

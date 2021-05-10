@@ -14,7 +14,7 @@ class StarModule {
   float StarSize = 4;
   int MaxSize = 20;
   int MinSize = 2;
-  int maxspeed = 20;
+  int maxspeed = 2;
   
   
   // Contructor 构造器，这个函数用于实例化一个StarModule对象
@@ -58,30 +58,10 @@ class StarModule {
   }
 
   void UpdateSpiral(float SpiralAccelrate) {
-    //螺旋
-    float xAcc = abs(x-Xlimit/2)*SpiralAccelrate;
-    float yAcc = abs(y-Ylimit/2)*SpiralAccelrate;
-    if(x<Xlimit/2 && y<Ylimit/2) {//1
-      Xspeed += xAcc;
-      Yspeed += yAcc;
-    }else if (x>Xlimit/2 && y<Ylimit/2){//2
-      Xspeed -= xAcc;
-      Yspeed += yAcc;
-    }else if (x>Xlimit/2 && y>Ylimit/2){//3
-      Xspeed -= xAcc;
-      Yspeed -= yAcc;
-    }else if (x<Xlimit/2 && y>Ylimit/2){//4
-      Xspeed += xAcc;
-      Yspeed -= yAcc;
-    }
-  }
-
-  void UpdateSpiral2(float SpiralAccelrate) {
     //这一步决定每个粒子怎么运动
-    //类似横8的轨迹运动
-    if(x>Xlimit/2) Xspeed -= SpiralAccelrate;
+    if(x>Ylimit/2) Xspeed -= SpiralAccelrate;
     else Xspeed += SpiralAccelrate;
-    if(y>Ylimit/2) Yspeed -= SpiralAccelrate;
+    if(y>Xlimit/2) Yspeed -= SpiralAccelrate;
     else Yspeed += SpiralAccelrate;
     //首先依据各轴速度更新x，y的位置
   }
