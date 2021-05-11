@@ -1,4 +1,4 @@
-int starunit = 50;
+int starunit = 40;
 //运动范围
 int count=0;
 StarModule[] stars;
@@ -30,9 +30,11 @@ void setup(){
 void draw(){
   background(0);
   for(StarModule star : stars){
-   acc = map(mouseX, 0,width,0,0.05);
+   acc = map(mouseX, 0,width,0,0.1);
    star.UpdateLiner();
-   star.UpdateGravity(0.2);
+   star.UpdateSize(0.01);
+   //star.UpdateSpiral2(acc);
+   //star.UpdateGravity(acc);
    star.UpdateLimitCheck(4);
    star.display(); //<>//
   }
